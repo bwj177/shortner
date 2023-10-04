@@ -1,0 +1,32 @@
+syntax = "v1"
+
+info(
+	title: "shortner"
+	desc: "this is a longUrl translate shortUrl System"
+	author: "Jayb"
+	email: "baowenjie20@163.com"
+	version: "v1"
+)
+
+type ConvertRequest {
+	LongUrl string `json:"longUrl" validate:"required"`
+}
+
+type ConvertResponse {
+	ShortUrl string `json:"shortUrl"`
+}
+
+type ShowRequest {
+	ShortUrl string `path:"shortUrl" validate:"required"`
+}
+
+type ShowResponse {
+	LongUrl string `json:"longUrl"`
+}
+service shortner-api{
+	@handler ConvertHandler
+	post /convert(ConvertRequest) returns(ConvertResponse)
+	
+	@handler ShowHandler
+	get /:shortUrl(ShowRequest) returns(ShowResponse)
+}

@@ -1,0 +1,31 @@
+Name: shortner-api
+Host: 0.0.0.0
+Port: 8888
+
+ShortUrlDB:
+  DSN: root:123456@tcp(127.0.0.1:3306)/db3?charset=utf8&parseTime=true
+
+SequenceDB:
+  DSN: root:123456@tcp(127.0.0.1:3306)/db3?charset=utf8&parseTime=true
+
+Log:
+  Mode: file
+
+
+Redis:
+  Host: 127.0.0.1:6379
+
+ShortBlackList: ["fuck","health","css","path","form"]
+
+
+ShortDoamin: 127.0.0.1:8888
+
+
+CacheRedis:
+  - Host: 127.0.0.1:6379
+
+
+Prometheus:
+  Host: 0.0.0.0
+  Port: 9091
+  Path: /metrics
